@@ -9,6 +9,8 @@ public class optionScript : MonoBehaviour
     public GameObject Option1;
     public GameObject Option2;
 
+    public GameObject correctOption;
+
     private List<GameObject> Options = new List<GameObject>();
 
     public TMP_Text displayText;
@@ -20,7 +22,7 @@ public class optionScript : MonoBehaviour
     
         var rnd = new System.Random();
 
-        GameObject correctOption = Options[rnd.Next(0, Options.Count)];
+        correctOption = Options[rnd.Next(0, Options.Count)];
 
         displayText.text = correctOption.name + " is the correct option";
     }

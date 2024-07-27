@@ -3,6 +3,5 @@
 *.apk
 .vscode/
 Temp/
-Library/
+# Library/
 Logs/
-# UserSettings/
