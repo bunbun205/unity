@@ -1,0 +1,8 @@
+*.csproj
+*.sln
+*.apk
+.vscode/
+Temp/
+Library/
+Logs/
+UserSettings/
