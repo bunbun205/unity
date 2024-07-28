@@ -4,10 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class optionScript : MonoBehaviour
+public class OptionScript : MonoBehaviour
 {
     public GameObject Option1;
     public GameObject Option2;
+
+    public static GameObject correctOption;
 
     private List<GameObject> Options = new List<GameObject>();
 
@@ -20,7 +22,7 @@ public class optionScript : MonoBehaviour
     
         var rnd = new System.Random();
 
-        GameObject correctOption = Options[rnd.Next(0, Options.Count)];
+        correctOption = Options[rnd.Next(0, Options.Count)];
 
         displayText.text = correctOption.name + " is the correct option";
     }
