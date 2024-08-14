@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,6 @@ public class OptionScript : MonoBehaviour
 
     private List<GameObject> Options = new List<GameObject>();
 
-    public TMP_Text displayText;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +22,6 @@ public class OptionScript : MonoBehaviour
 
         correctOption = Options[rnd.Next(0, Options.Count)];
 
-        displayText.text = correctOption.name + " is the correct option";
     }
 
     // Update is called once per frame
