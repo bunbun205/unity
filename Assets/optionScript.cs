@@ -5,22 +5,31 @@ using UnityEngine.UI;
 
 public class OptionScript : MonoBehaviour
 {
-    public GameObject Option1;
-    public GameObject Option2;
 
-    public static GameObject correctOption;
-
-    private List<GameObject> Options = new List<GameObject>();
+    static List<GameObject> Options = new List<GameObject>();
+    public static List <GameObject> CorrectOptions = new List <GameObject>();
 
     // Start is called before the first frame update
-    void Start()
+    public static void Start()
     {
-        Options.Add(Option1);
-        Options.Add(Option2);
+
+        Options.Add (GameObject.Find ("OptionA"));
+        Options.Add (GameObject.Find ("OptionB"));
+        Options.Add (GameObject.Find ("OptionA1"));
+        Options.Add (GameObject.Find ("OptionB1"));
+        Options.Add (GameObject.Find ("OptionA2"));
+        Options.Add (GameObject.Find ("OptionB2"));
+
+
+
     
         var rnd = new System.Random();
 
-        correctOption = Options[rnd.Next(0, Options.Count)];
+        CorrectOptions.Add (Options[rnd.Next(0, 2)]);
+        CorrectOptions.Add (Options[rnd.Next(2, 4)]);
+        CorrectOptions.Add (Options[rnd.Next(4, 6)]);
+
+
 
     }
 

@@ -53,16 +53,44 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerClick()
     {
-        if(OptionScript.correctOption == gameObject){
-		
-		_myRenderer.material = CorrectMaterial;
-		PlayerMovementScript.clicked = true;
-	}
-	else{
-		_myRenderer.material = WrongMaterial;
-		PlayerMovementScript.clicked = false;
-	}
+        if (gameObject == OptionScript.CorrectOptions[0] && !PlayerMovementScript.clicked1)
+        {
+
+            _myRenderer.material = CorrectMaterial;
+            PlayerMovementScript.clicked1 = true;
+            PlayerMovementScript.speed = 10;
+            Debug.Log(gameObject);
+
+        }
+        else if (gameObject == OptionScript.CorrectOptions[1] && !PlayerMovementScript.clicked2)
+        {
+
+            _myRenderer.material = CorrectMaterial;
+            PlayerMovementScript.clicked2 = true;
+            PlayerMovementScript.speed = 10;
+            Debug.Log(gameObject);
+
+        }
+
+        else if (gameObject == OptionScript.CorrectOptions[2] && !PlayerMovementScript.clicked3)
+        {
+
+            _myRenderer.material = CorrectMaterial;
+            PlayerMovementScript.clicked3 = true;
+            PlayerMovementScript.speed = 10;
+            Debug.Log(gameObject); 
+
+        }
+        else {
+            
+            _myRenderer.material = WrongMaterial;
+            PlayerMovementScript.clicked1 = false;
+            PlayerMovementScript.clicked2 = false;
+            PlayerMovementScript.clicked3 = false;
+
+        }
     }
+
 
     /// <summary>
     /// Sets this instance's material according to gazedAt status.
