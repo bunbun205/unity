@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+
+    public static GameObject startCanvas;
+    public GameObject endCanvas;
     AudioSource source;
     public AudioClip clipLeft;
     public AudioClip clipRight;
@@ -22,6 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
     public static void move()
     {
         speed = 10.0f;
+        startCanvas.SetActive(false);
     }
 
     public static void restart()
@@ -31,8 +35,10 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Start()
     {
+        startCanvas = GameObject.Find("StartCanvas");
         index = 0;
         transform.position = Waypoints[index].transform.position;
+        endCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,7 +55,7 @@ public class PlayerMovementScript : MonoBehaviour
             index++;
         }
 
-        if (Vector3.Distance(transform.position, options[0].transform.position) <= 5 && !clicked1)
+        if (Vector3.Distance(transform.position, options[0].transform.position) <= 10 && !clicked1)
         {
             speed = 0;
             PlayAudio ();
@@ -61,7 +67,7 @@ public class PlayerMovementScript : MonoBehaviour
             speed = 10;
         }
 
-        if (Vector3.Distance(transform.position, options[1].transform.position) <= 5 && !clicked2)
+        if (Vector3.Distance(transform.position, options[1].transform.position) <= 10 && !clicked2)
         {
             speed = 0;
             PlayAudio ();
@@ -74,7 +80,7 @@ public class PlayerMovementScript : MonoBehaviour
             speed = 10;
         }
 
-        if (Vector3.Distance(transform.position, options[2].transform.position) <= 5 && !clicked3)
+        if (Vector3.Distance(transform.position, options[2].transform.position) <= 10 && !clicked3)
         {
             speed = 0;
             PlayAudio ();
@@ -85,6 +91,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             options[2].transform.position = new Vector3(0, -50, 0);
             speed = 10;
+            endCanvas.SetActive(true);
         }
 
 
